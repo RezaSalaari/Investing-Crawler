@@ -2,10 +2,7 @@ const Puppeteer = require("puppeteer");
 let page = "";
 async function doCrawl(){
 try {
-  const browser = await Puppeteer.connect({
-    browserWSEndpoint: `wss://chrome-app.iran.liara.run//?token=vP3Bw3XCaP75GyfroId`,
-  
-});
+  const browser = await Puppeteer.launch({headless:false});
   // Create a new page object
    page = await browser.newPage();
    console.log('open new Page');
@@ -15,8 +12,8 @@ try {
   });
 
   await page.waitForSelector("#technicalstudiesSubTabs");
-  await page.waitForSelector('button[id="onetrust-accept-btn-handler"]');
-  await page.click('button[id="onetrust-accept-btn-handler"]');
+  // await page.waitForSelector('button[id="onetrust-accept-btn-handler"]');
+  // await page.click('button[id="onetrust-accept-btn-handler"]');
   await page.click("xpath/" + '//*[@id="timePeriodsWidget"]/li[6]/a');
   await page.waitForTimeout(8000)
   const riskyPoints = await getR2AndS2();
@@ -62,4 +59,5 @@ async function getR2AndS2() {
     Sell: Number(R2.split('.')[0]) - 1 +'.'+R2.split('.')[1] ,
    Buy: Number(S2.split('.')[0]) + 1 +'.'+S2.split('.')[1] } 
 }
+
 module.exports = doCrawl

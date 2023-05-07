@@ -49,7 +49,7 @@ function hasAllowToSendMessage(){
 }
 
 function allowedDay(){
-  const allowedDays = ['Tuesday','Wednesday','Thursday','Friday','Monday']
+  const allowedDays = ['Tuesday','Sunday','Wednesday','Thursday','Friday','Monday']
   const today = new Date().toLocaleString('en-US', { weekday: 'long',})
  return allowedDays.indexOf(today) > -1
 }
@@ -58,5 +58,5 @@ function allowedDay(){
 function allowedHour(){
   const hour = new Date().getHours();
   console.log(hour,'hour');
-  return [08,13,18,16,12].indexOf(hour) > -1
+  return [08,13,18,11].indexOf(hour) > -1
 }

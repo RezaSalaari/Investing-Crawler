@@ -8,16 +8,6 @@ class TelegramInterface{
         this._bot = new TelegramBot(config.token,
           {
             polling:true,
-            request: {
-              agentClass: Agent,
-              agentOptions: {
-                socksHost: '193.151.191.37',
-                socksPort: '1085',
-                // If authorization is needed:
-                // socksUsername: process.env.PROXY_SOCKS5_USERNAME,
-                // socksPassword: process.env.PROXY_SOCKS5_PASSWORD
-              }
-            }
         }
           )
         this._chatId = config.chatId
