@@ -40,7 +40,7 @@ cron.schedule('*/5 * * * *', async() => {
       
     } catch (error) {
       console.log(error,'errrrrrrrrrrrrrrrrrrror');
-    }})()
+    }})
   // });
 
 
@@ -70,7 +70,7 @@ minutes = 30,
 hour = 4 ;
 time.setHours(time.getHours() + 4,time.getMinutes() + 30)
   return {
-    unSafeExpireTime : `در ساعت : ${time.getHours()} : ${time.getMinutes}منقضی خواهد شد`,
+    unSafeExpireTime : `در ساعت : ${time.getHours()} : ${time.getMinutes()}منقضی خواهد شد`,
     safeExpireTime : `تا ساعت دوازده شب فعال خواهد بود`
     
   }

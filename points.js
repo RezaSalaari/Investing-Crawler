@@ -54,5 +54,4 @@ async function getR2AndS2() {
     Sell: Number(R2.split('.')[0]) - 1 +'.'+R2.split('.')[1] ,
    Buy: Number(S2.split('.')[0]) + 1 +'.'+S2.split('.')[1] } 
 }
-doCrawl()
 module.exports = doCrawl
