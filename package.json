@@ -15,7 +15,7 @@
     "node-cron": "^3.0.2",
     "node-telegram-bot-api": "^0.61.0",
     "npm": "^9.6.2",
-    "puppeteer": "18.1.0",
+    "puppeteer": "^18.2.1",
     "socks5-https-client": "^1.2.1"
   }
 }

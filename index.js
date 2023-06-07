@@ -29,9 +29,10 @@ cron.schedule('*/5 * * * *', async() => {
       Buy  : ${safePoints.Buy}
       -----------------------------------
       
-      'تایم' :
-
-      ${new Date().toLocaleTimeString()}
+      'مدت زمان اعتبار' : 
+      
+    نقاط امن : ${getExpireTime().safeExpireTime}
+    نقاط پر ریسک : ${getExpireTime().unSafeExpireTime}
     `
     try {
       console.log('now its send pm to telegram');
@@ -39,8 +40,8 @@ cron.schedule('*/5 * * * *', async() => {
       
     } catch (error) {
       console.log(error,'errrrrrrrrrrrrrrrrrrror');
-    }
-  });
+    }})()
+  // });
 
 
 function hasAllowToSendMessage(){
@@ -58,5 +59,19 @@ function allowedDay(){
 function allowedHour(){
   const hour = new Date().getHours();
   console.log(hour,'hour');
-  return [08,13,18,11].indexOf(hour) > -1
+  return [08,13,18].indexOf(hour) > -1
+}
+/**
+ * این تابع وظیفه محاسبه زمان اکسپایر شدن سیگنال را دارد
+ */
+function getExpireTime(){
+const time = new Date(),
+minutes = 30,
+hour = 4 ;
+time.setHours(time.getHours() + 4,time.getMinutes() + 30)
+  return {
+    unSafeExpireTime : `در ساعت : ${time.getHours()} : ${time.getMinutes}منقضی خواهد شد`,
+    safeExpireTime : `تا ساعت دوازده شب فعال خواهد بود`
+    
+  }
 }
