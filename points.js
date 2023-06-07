@@ -24,6 +24,7 @@ try {
   await page.waitForSelector("#timePeriodsWidget");
   await page.waitForTimeout(8000)
   await page.click("xpath/" + '//*[@id="timePeriodsWidget"]/li[6]/a'); //click on 5h label
+  await page.waitForTimeout(100000)
 const riskyPoints = await getR2AndS2();
   await page.waitForTimeout(8000)
   await page.click("xpath/" + '//*[@id="timePeriodsWidget"]/li[7]/a');//click on daily label
