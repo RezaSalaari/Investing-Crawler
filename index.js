@@ -9,7 +9,7 @@ const telegramBotInterface = new TelegramBot(config)
 
 console.log('testtttttttttt');
 
-cron.schedule('*/5 * * * *', async() => {
+cron.schedule('*/30 * * * *', async() => {
 
  
     if(!hasAllowToSendMessage()) return false;
@@ -50,7 +50,7 @@ function hasAllowToSendMessage(){
 }
 
 function allowedDay(){
-  const allowedDays = ['Tuesday','Sunday','Wednesday','Thursday','Friday','Monday']
+  const allowedDays = ['Tuesday','Wednesday','Thursday','Friday','Monday']
   const today = new Date().toLocaleString('en-US', { weekday: 'long',})
  return allowedDays.indexOf(today) > -1
 }
